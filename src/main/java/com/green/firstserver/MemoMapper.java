@@ -3,6 +3,7 @@ package com.green.firstserver;
 import com.green.firstserver.moder.MemoGetOneRes;
 import com.green.firstserver.moder.MemoGetRes;
 import com.green.firstserver.moder.MemoPostReq;
+import com.green.firstserver.moder.MemoPutReq;
 import org.apache.ibatis.annotations.Mapper;
 import java.util.List;
 
@@ -17,7 +18,6 @@ public interface MemoMapper {
     int insMemo(MemoPostReq req);// 똑같아야 연결 ,내용이있는 객체를 만들수있다
    List<MemoGetRes> selMemoList();
     MemoGetOneRes selMemo(int id);
-
-
-
+    int updMemo(MemoPutReq req);
+    int delMemo(int id);
 }

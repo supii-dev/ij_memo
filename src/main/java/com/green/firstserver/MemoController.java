@@ -3,6 +3,7 @@ package com.green.firstserver;
 import com.green.firstserver.moder.MemoGetOneRes;
 import com.green.firstserver.moder.MemoGetRes;
 import com.green.firstserver.moder.MemoPostReq;
+import com.green.firstserver.moder.MemoPutReq;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -36,5 +37,18 @@ public class MemoController {
         System.out.println("post memo req: " + req);
         int result = memoService.insMemo(req);
         return result == 1 ? "성공":"실패";
+    }
+    @PutMapping("/memo")
+    public String putMemo(@RequestBody MemoPutReq req) {
+        System.out.println("postMemo: " + req);
+        int result = memoService.updMemo(req);
+        return result == 1 ? "성공" : "실패";
+    }
+
+    @DeleteMapping("/memo")
+    public String deleteMemo(@RequestParam int id) {
+        System.out.println("deleteMemo: " + id);
+        int result = memoService.delMemo(id);
+        return result == 1 ? "성공" : "실패";
     }
 }
